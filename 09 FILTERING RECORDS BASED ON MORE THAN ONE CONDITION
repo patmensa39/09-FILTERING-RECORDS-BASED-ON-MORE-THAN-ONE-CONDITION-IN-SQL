@@ -1,0 +1,32 @@
+--09 FILTERING RECORDS BASED ON MORE THAN ONE CONDITION
+/* How many invoices were billed on 2010-05-22 and have a total of less than $3.00?
+Created by Patrick Mensah 
+Date Created: 04/07/2022
+Description: The query shows how many invoices were billed on 2010-05-22 and have a total of less than $3.00
+*/
+SELECT 
+     InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    DATE(InvoiceDate) > '2010-05-22'  AND Total < 3.00
+ORDER BY 
+    InvoiceDate
+--124 invoices
+
+-- Assuming we want to know whose billing city starts  P and start with D
+SELECT 
+     InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    BillingCity LIKE 'P%' OR BillingCity LIKE'D%'
+ORDER BY 
+    InvoiceDate
+--56 records 
